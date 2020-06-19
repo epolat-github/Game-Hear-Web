@@ -10,3 +10,27 @@
     max-height: 100%;
 }
 
+#about-container {
+    font-size: 1.5em;
+    grid-column: 5/9;
+
+}
+
+#header-main {
+    grid-column: 1/-1;
+}
+
+#links-container {
+    grid-column: 5/9;
+}
+
+.main-container {
+    height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    /* align-content: center; */
+}

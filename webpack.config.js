@@ -8,6 +8,7 @@ module.exports = {
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist"),
+        publicPath: "/",
     },
     module: {
         rules: [
@@ -39,6 +40,8 @@ module.exports = {
     },
     devServer: {
         contentBase: "./dist",
+        historyApiFallback: true,
+        port: 5000,
         hot: true,
         overlay: {
             errors: true,
@@ -52,5 +55,5 @@ module.exports = {
         }),
         new ErrorOverlayPlugin(),
     ],
-    devtool: 'cheap-module-source-map',
+    devtool: "cheap-module-source-map",
 };

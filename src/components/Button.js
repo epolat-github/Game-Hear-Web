@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Button = ({ style, text, link }) => {
+const Button = ({ style, text, link, type }) => {
     return (
         <div className="buttonContainer">
-            <a href={link}>
-                <button className={style}>{text}</button>
-            </a>
+            {type === "inside" ? (
+                <Link to={link}>
+                    <button className={style}>{text}</button>
+                </Link>
+            ) : (
+                <a href={link} target="_blank">
+                    <button className={style}>{text}</button>
+                </a>
+            )}
         </div>
     );
 };
