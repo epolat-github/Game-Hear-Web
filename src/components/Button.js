@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Button = ({ style, text, link, type }) => {
+const Button = ({ style, text, link, targetRef }) => {
     return (
-        <div className="buttonContainer">
-            {type === "inside" ? (
+        <div className="button-container">
+            {targetRef === "inside" ? (
                 <Link to={link}>
                     <button className={style}>{text}</button>
                 </Link>

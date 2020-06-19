@@ -9,12 +9,14 @@ const About = () => {
     return (
         <section id="about-container">
             <p id="about-main">
-                Laborum enim duis labore consectetur nostrud officia qui
-                cupidatat sint quis incididunt aliqua. Qui nulla mollit duis
-                aliquip ipsum exercitation et nulla Lorem veniam proident nulla
-                nostrud. Qui ea in sit irure. Voluptate est nisi aliqua amet
-                sunt est esse quis cupidatat veniam. Cupidatat laborum nisi
-                Lorem aliqua voluptate.
+                If you can't keep up with the last news and updates of your
+                favourite games,{" "}
+                <span className="inline-app-name">
+                    <span>Game</span>
+                    {/* {" "} */}
+                    <span>Hear</span>
+                </span>{" "}
+                is just the right app for you.
             </p>
         </section>
     );
@@ -23,24 +25,28 @@ const About = () => {
 const Links = () => {
     return (
         <section id="links-container">
-            <Button
-                type="primary-button"
-                text="Games"
-                link="/games"
-                type="inside"
-            />
-            <Button
-                type="secondary-button"
-                text="Email Sub"
-                link="/email"
-                type="inside"
-            />
-            <Button
-                type="google-play-button"
-                text="Google Play"
-                link="https://play.google.com/"
-                type="outside"
-            />
+            <div id="nav-links">
+                <Button
+                    style="secondary-button"
+                    text="Subscribe"
+                    link="/email"
+                    targetRef="inside"
+                />
+                <Button
+                    style="primary-button"
+                    text="Games"
+                    link="/games"
+                    targetRef="inside"
+                />
+            </div>
+            <div id="store-links">
+                <Button
+                    style="google-play-button"
+                    text=""
+                    link="https://play.google.com/"
+                    targetRef="outside"
+                />
+            </div>
         </section>
     );
 };

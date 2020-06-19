@@ -1,36 +1,147 @@
-#header-main {
-    background-color: aqua;
-    height: 15em;
-    display: flex;
-    justify-content: center;
+/* GLOBAL STYLES */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("./assets/fonts/Ubuntu-Regular.ttf") format("ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url("./assets/fonts/Ubuntu-Light.ttf") format("ttf");
+    font-weight: lighter;
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url("./assets/fonts/Ubuntu-Medium.ttf") format("ttf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url("./assets/fonts/Ubuntu-Bold.ttf") format("ttf");
+    font-weight: "bolder";
 }
 
+button {
+    box-shadow: 0px 2.76726px 2.21381px rgba(147, 120, 255, 0.0196802),
+        0px 6.6501px 5.32008px rgba(147, 120, 255, 0.0282725),
+        0px 12.5216px 10.0172px rgba(147, 120, 255, 0.035),
+        0px 22.3363px 17.869px rgba(147, 120, 255, 0.0417275),
+        0px 41.7776px 33.4221px rgba(147, 120, 255, 0.0503198),
+        0px 100px 80px rgba(147, 120, 255, 0.07);
+    border: none;
+    outline: none;
+
+    font-family: "Ubuntu";
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 24px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+/* MAIN PAGE */
+.main-container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inline-app-name {
+    color: #4d21ff;
+    font-weight: bolder;
+}
+
+/* HEADER */
+#header-main {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HEADER LOGO */
 #logo-header {
-    /* max-width:100%; */
     max-height: 100%;
 }
 
+/* ABOUT SECTION */
 #about-container {
-    font-size: 1.5em;
-    grid-column: 5/9;
-
+    max-width: 35%;
+    padding-bottom: 50px;
 }
 
-#header-main {
-    grid-column: 1/-1;
+#about-container p {
+    font-size: 1.7em;
+    text-align: center;
+
+    font-family: "Ubuntu";
+    font-weight: lighter;
+    font-size: 32px;
+    line-height: 140.5%;
+    letter-spacing: 0.1em;
+
+    height: 100%;
 }
 
+/* LINKS SECTION */
 #links-container {
-    grid-column: 5/9;
+    width: 30%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 30%;
 }
 
-.main-container {
-    height: 100vh;
+#links-container #nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    /* align-content: center; */
+#links-container #store-links {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#links-container button {
+    border-radius: 28px;
+    width: 180px;
+    height: 70px;
+}
+
+/* BUTTON TYPES */
+.primary-button {
+    background-color: #9378ff;
+
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    background-color: #8365fb;
+
+    color: #ffffff;
+}
+
+.secondary-button {
+    background-color: #faf8f8;
+
+    color: #9378ff;
+}
+
+.secondary-button:hover {
+    background-color: #eee8e8bf;
+}
+
+.google-play-button {
+    background: url(./assets/images/google-play-badge.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: none;
 }
