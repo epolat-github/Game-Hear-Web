@@ -12,6 +12,7 @@ const GamesNavbar = ({ games }) => {
         <nav id="games-navbar-container">
             {games.map((gameName, index) => (
                 <Button
+                    key={gameName}
                     style={
                         index === active ? "primary-button" : "secondary-button"
                     }

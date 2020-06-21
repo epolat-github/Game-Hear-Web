@@ -165,13 +165,60 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 /* GAME NEWS CARD */
 .single-news-card {
     margin: 10px;
-    padding: 15px 20px;
-    background-color: beige;
+    padding: 30px 25px;
+    background-color: #ffffff;
+    box-shadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00562291),
+        0px 6.6501px 5.32008px rgba(0, 0, 0, 0.00807786),
+        0px 12.5216px 10.0172px rgba(0, 0, 0, 0.01),
+        0px 22.3363px 17.869px rgba(0, 0, 0, 0.0119221),
+        0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0143771),
+        0px 100px 80px rgba(0, 0, 0, 0.02), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.single-news-card h1 {
+    font-weight: bold;
+    font-size: 2em;
+    width: 80%;
+    text-align: center;
+}
+
+.single-news-card p {
+    font-size: 1.8em;
+    font-weight: bold;
+    align-self: flex-start;
+    margin: 25px 8%;
+    color: #00000085;
+    order: -1;
+}
+
+.single-news-card img {
+    border-radius: 15px;
+    margin: 35px 0;
+    width: 50%;
+}
+
+.single-news-card ul {
+    padding: 15px 10px;
+    width: 70%;
+}
+
+.single-news-card li {
+    font-size: 2em;
+    line-height: 1.4em;
+    /* border-bottom: 2px solid #4d21ff; */
+    list-style-type: circle;
+    padding: 10px 20px;
 }
 
 /* GAMES PAGE NAVBAR (GAME LIST) */

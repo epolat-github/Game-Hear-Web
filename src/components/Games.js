@@ -17,7 +17,7 @@ const Games = () => {
                         url:
                             "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/a/a6/GTA_Online_61820.jpg",
                         dimensions: {
-                            width: 300,
+                            width: undefined,
                             height: undefined,
                         },
                     }}
