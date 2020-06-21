@@ -12,8 +12,14 @@ const SingleNewsCard = ({ date, header, image, news }) => {
     return (
         <section className="single-news-card">
             <h1>{header}</h1>
-            <p>{formatDate(date)}</p>
-            <img src={image + "?width=300"} alt="Featured image of GTA5 news" />
+            <p className="single-news-date">{formatDate(date)}</p>
+            <img
+                src={
+                    image.url +
+                    `?width=${image.dimensions.width}&height=${image.dimensions.height}`
+                }
+                alt="Featured image of GTA5 news"
+            />
             <ul className="weekly-news-list">
                 {news.map((item, index) => (
                     <li
