@@ -101,6 +101,7 @@ button {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    height: 100%;
 }
 
 #links-container #store-links {
@@ -110,13 +111,14 @@ button {
     justify-content: center;
 }
 
-#links-container button {
+/* BUTTON TYPES */
+
+button {
     border-radius: 28px;
     width: 180px;
     height: 70px;
 }
 
-/* BUTTON TYPES */
 .primary-button {
     background-color: #9378ff;
 
@@ -144,4 +146,72 @@ button {
     background-repeat: no-repeat;
     background-size: contain;
     box-shadow: none;
+}
+
+/* GAMES PAGE */
+.games-container {
+    /* background-color: red; */
+    /* height: 100vh; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cards-container {
+    /* height: 800px; */
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* GAME NEWS CARD */
+.single-news-card {
+    margin: 10px;
+    padding: 15px 20px;
+    background-color: beige;
+}
+
+/* GAMES PAGE NAVBAR (GAME LIST) */
+#games-navbar-container {
+    /* background-color: #4d21ff; */
+    overflow: hidden;
+    background-color: #faf8f8;
+    border: 1px solid #e6dcdc;
+    border-radius: 25px;
+    box-shadow: 0px 2.76726px 2.21381px rgba(147, 120, 255, 0.0196802),
+        0px 6.6501px 5.32008px rgba(147, 120, 255, 0.0282725),
+        0px 12.5216px 10.0172px rgba(147, 120, 255, 0.035),
+        0px 22.3363px 17.869px rgba(147, 120, 255, 0.0417275),
+        0px 41.7776px 33.4221px rgba(147, 120, 255, 0.0503198),
+        0px 100px 80px rgba(147, 120, 255, 0.07);
+
+    /* width: 30%; */
+    display: flex;
+    /* height: 103px; */
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+}
+
+#games-navbar-container button {
+    /* width: 300px; */
+    border-radius: 25px;
+    font-size: 1.7em;
+    box-shadow: none;
+}
+
+#games-navbar-container .secondary-button {
+    border-radius: 0;
+}
+
+#games-navbar-container .secondary-button:hover {
+    border-radius: 0;
+    background-color: #faf8f8;
+}
+
+#games-navbar-container .primary-button:hover {
+    background-color: #9378ff;
 }

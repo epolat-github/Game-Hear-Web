@@ -13,7 +13,7 @@ const GamesNavbar = ({ games }) => {
             {games.map((gameName, index) => (
                 <Button
                     style={
-                        index === active ? "secondary-button active" : "primary-button"
+                        index === active ? "primary-button" : "secondary-button"
                     }
                     text={gameName}
                     link={`#${gameName}`}
