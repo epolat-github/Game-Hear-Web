@@ -12,7 +12,7 @@ const Games = () => {
             <section className="cards-container">
                 <SingleNewsCard
                     date={new Date()}
-                    header="Eu eiusmod qui dolore do duis ipsum cillum officia sit ut exercitation enim voluptate reprehenderit."
+                    header="Euu eiusmod qui dolore do duis ipsum cillum officia sit ut exercitation enim voluptate reprehenderit."
                     image={{
                         url:
                             "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/a/a6/GTA_Online_61820.jpg",
