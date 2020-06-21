@@ -38,7 +38,13 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ["file-loader"],
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[hash].[ext]",
+                        outputPath: "fonts",
+                    },
+                },
             },
         ],
     },
@@ -59,5 +65,5 @@ module.exports = {
         }),
         new ErrorOverlayPlugin(),
     ],
-    devtool: "cheap-module-source-map",
+    // devtool: "cheap-module-source-map",
 };
