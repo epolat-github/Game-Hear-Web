@@ -11,6 +11,7 @@
   "author": "Erinç Polat",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
