@@ -168,7 +168,7 @@ button {
     align-items: center;
 }
 
-/* GAME NEWS CARD */
+/* GAME NEWS CARDS */
 .single-news-card {
     margin: 10px;
     padding: 30px 25px;
@@ -209,16 +209,21 @@ button {
 }
 
 .single-news-card ul {
+    margin-top: 1%;
     padding: 15px 10px;
-    width: 70%;
+    width: 80%;
 }
 
 .single-news-card li {
-    font-size: 2em;
-    line-height: 1.4em;
+    font-size: 1.7rem;
+    line-height: 2.3rem;
     /* border-bottom: 2px solid #4d21ff; */
-    list-style-type: circle;
+    /* list-style-type: circle; */
     padding: 10px 20px;
+}
+
+.single-news-card li:nth-child(even) {
+    background-color: #634cbd17;
 }
 
 /* GAMES PAGE NAVBAR (GAME LIST) */
