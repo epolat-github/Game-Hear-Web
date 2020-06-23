@@ -17,7 +17,7 @@
 @font-face {
     font-family: "Ubuntu";
     src: url("./assets/fonts/Ubuntu-Bold.ttf") format("ttf");
-    font-weight: "bolder";
+    font-weight: bolder;
 }
 
 button {
@@ -193,7 +193,7 @@ button {
     text-align: center;
 }
 
-.single-news-card p {
+.single-news-card .single-news-date {
     font-size: 1.8em;
     font-weight: bold;
     align-self: flex-start;
@@ -220,10 +220,27 @@ button {
     /* border-bottom: 2px solid #4d21ff; */
     /* list-style-type: circle; */
     padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10%;
 }
 
-.single-news-card li:nth-child(even) {
+/* .single-news-card li:nth-child(even) {
     background-color: #634cbd17;
+} */
+
+/* TODO font not applied */
+.single-news-card li h3 {
+    grid-column: 1/-1;
+    font-family: "Ubuntu";
+    font-weight: bold;
+    /* border-top: 2px solid rgb(128, 12, 182); */
+    border-width: 100%;
+    margin: 10px 0;
+}
+
+.single-news-card li p {
+    line-height: 2.4rem;
 }
 
 /* GAMES PAGE NAVBAR (GAME LIST) */

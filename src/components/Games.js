@@ -44,6 +44,7 @@ const Games = () => {
             <section className="cards-container">
                 {newsList.map((news) => (
                     <SingleNewsCard
+                        key={Math.random().toString()}
                         date={new Date(news.newDate)}
                         header={news.newHeader}
                         image={{

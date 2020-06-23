@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
+
+//TODO polyfill is deprecated. Should be changed
 require("@babel/polyfill");
 const path = require("path");
 

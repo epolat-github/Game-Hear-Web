@@ -26,7 +26,10 @@ const SingleNewsCard = ({ date, header, image, news }) => {
                         className="weekly-news-list-item"
                         key={index.toString()}
                     >
-                        {item}
+                        <h3>{item.topic}</h3>
+                        {item.items.map((item, index) => (
+                            <p key={index.toString()}>{item}</p>
+                        ))}
                     </li>
                 ))}
             </ul>
