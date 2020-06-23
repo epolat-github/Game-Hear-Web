@@ -9,26 +9,27 @@ const Games = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    "https://game-hear-backend.herokuapp.com/api/gta5/news"
-                );
-                if (!response.ok) {
-                    throw new Error("Network response is not OK.");
-                }
-                const data = await response.json();
-                setIsLoaded(true);
-                setNewsList(data);
-            } catch (err) {
-                console.log(err);
-                setIsLoaded(true);
-                setError(err);
+    const fetchData = async (count) => {
+        try {
+            const response = await fetch(
+                `https://game-hear-backend.herokuapp.com/api/gta5/news/${count}`
+            );
+            if (!response.ok) {
+                throw new Error("Network response is not OK.");
             }
-        };
+            const data = await response.json();
+            setIsLoaded(true);
+            setNewsList(data);
+        } catch (err) {
+            console.log(err);
+            setIsLoaded(true);
+            setError(err);
+        }
+    };
 
-        fetchData();
+    // initial fetching
+    useEffect(() => {
+        fetchData(1);
     }, []);
 
     if (error) {
@@ -57,45 +58,13 @@ const Games = () => {
                         news={news.news}
                     />
                 ))}
-                {/* <SingleNewsCard
-                    date={new Date()}
-                    header="Euu eiusmod qui dolore do duis ipsum cillum officia sit ut exercitation enim voluptate reprehenderit."
-                    image={{
-                        url:
-                            "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/a/a6/GTA_Online_61820.jpg",
-                        dimensions: {
-                            width: undefined,
-                            height: undefined,
-                        },
-                    }}
-                    news={[
-                        "Ut ut irure laborum labore voluptate.",
-                        "Quis est nostrud eiusmod anim fugiat duis enim voluptate tempor.",
-                        "Fugiat aliqua non dolore excepteur do proident anim qui enim.",
-                        "Ad duis nisi Lorem non qui.",
-                        "Dolor non veniam reprehenderit est minim.",
-                    ]}
-                />
-                <SingleNewsCard
-                    date={new Date()}
-                    header="Eu eiusmod qui dolore do duis ipsum cillum officia sit ut exercitation enim voluptate reprehenderit."
-                    image={{
-                        url:
-                            "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/a/a6/GTA_Online_61820.jpg",
-                        dimensions: {
-                            width: 300,
-                            height: undefined,
-                        },
-                    }}
-                    news={[
-                        "Ut ut irure laborum labore voluptate.",
-                        "Quis est nostrud eiusmod anim fugiat duis enim voluptate tempor.",
-                        "Fugiat aliqua non dolore excepteur do proident anim qui enim.",
-                        "Ad duis nisi Lorem non qui.",
-                        "Dolor non veniam reprehenderit est minim.",
-                    ]}
-                /> */}
             </section>
+            <button
+                className="primary-button more-button"
+                onClick={() => fetchData(newsList.length + 3)}
+            >
+                More
+            </button>
         </section>
     );
 };
