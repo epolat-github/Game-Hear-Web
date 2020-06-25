@@ -22,12 +22,16 @@ const Games = () => {
                 throw new Error("Network response is not OK.");
             }
             const data = await response.json();
-            setIsLoaded(true);
-            setNewsList(data);
+            setTimeout(() => {
+                setIsLoaded(true);
+                setNewsList(data);
+            }, 300);
         } catch (err) {
-            console.log(err);
-            setIsLoaded(true);
-            setError(err);
+            setTimeout(() => {
+                console.log(err);
+                setIsLoaded(true);
+                setError(err);
+            }, 300);
         }
     };
 
@@ -82,7 +86,7 @@ const Games = () => {
                 </section>
             ) : (
                 <div className="error-container">
-                    This game is not ready or there's an internal error.
+                    <p>This game is not ready or there's an internal error.</p>
                 </div>
             )}
             {isLoaded && !error && (

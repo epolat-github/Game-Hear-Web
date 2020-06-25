@@ -168,6 +168,16 @@ button {
     align-items: center;
 }
 
+.games-container .loading {
+    margin: 10%;
+    font-size: 3rem;
+}
+
+.games-container .error-container {
+    margin: 10%;
+    font-size: 3rem;
+}
+
 /* GAME NEWS CARDS */
 .single-news-card {
     margin: 10px;
