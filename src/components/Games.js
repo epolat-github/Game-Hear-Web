@@ -66,7 +66,7 @@ const Games = () => {
                 changeActiveIndex={setActiveGameIndex}
             />
             {!isLoaded && <div className="loading">Loading...</div>}
-            {!error ? (
+            {(!error && isLoaded) ? (
                 <section className="cards-container">
                     {newsList.map((news) => (
                         <SingleNewsCard
