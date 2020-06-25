@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-const GamesNavbar = ({ games }) => {
-    const [active, setActive] = useState(Math.floor(games.length / 2));
-
-    const onClickHandler = (index) => {
-        setActive(index);
-    };
+const GamesNavbar = ({ games, activeGameIndex, changeActiveIndex }) => {
 
     return (
         <nav id="games-navbar-container">
@@ -14,12 +9,14 @@ const GamesNavbar = ({ games }) => {
                 <Button
                     key={gameName}
                     style={
-                        index === active ? "primary-button" : "secondary-button"
+                        index === activeGameIndex
+                            ? "primary-button"
+                            : "secondary-button"
                     }
                     text={gameName}
                     link={`#${gameName}`}
                     targetRef="inside"
-                    onClickHandler={() => onClickHandler(index)}
+                    onClickHandler={() => changeActiveIndex(index)}
                 ></Button>
             ))}
         </nav>
