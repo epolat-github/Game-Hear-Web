@@ -294,3 +294,9 @@ button {
 #games-navbar-container .primary-button:hover {
     background-color: #9378ff;
 }
+
+/* MORE BUTTON */
+
+.more-button {
+    margin: 1%;
+}
