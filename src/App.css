@@ -121,7 +121,7 @@ button {
 
 .primary-button {
     background-color: #9378ff;
-
+    transition: 0.3s background ease;
     color: #ffffff;
 }
 
@@ -133,7 +133,7 @@ button {
 
 .secondary-button {
     background-color: #faf8f8;
-
+    transition: 0.3s background ease;
     color: #9378ff;
 }
 
@@ -299,4 +299,63 @@ button {
 
 .more-button {
     margin: 1%;
+}
+
+/* SUBSCRIPTION PAGE */
+#email-sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* SUB FORM */
+#sub-form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    /* background-color: #f0ebeb; */
+    border: 1px solid grey;
+    padding: 20px;
+    margin: 10%;
+    /* font-size: 2rem; */
+}
+
+/* email input */
+label:first-child, label:nth-child(3) {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(77, 66, 66);
+}
+
+#email-input {
+    outline: none;
+    border: none;
+    /* background-color: gainsboro; */
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    margin-bottom: 6%;
+    margin-top: 0%;
+
+    border-bottom: 2px solid #4d21ff;
+
+    font-size: 1.3rem;
+}
+
+#submit-button {
+    width: 30%;
+    align-self: center;
+
+    padding: 10px 15px;
+    margin-top: 5%;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    outline: none;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
 }

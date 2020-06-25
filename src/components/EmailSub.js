@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import Header from "./Header";
 
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
+const Checkbox = ({
+    id,
+    type = "checkbox",
+    name,
+    checked = false,
+    onChange,
+}) => {
     return (
-        <input type={type} name={name} checked={checked} onChange={onChange} />
+        <input
+            id={id}
+            type={type}
+            name={name}
+            checked={checked}
+            onChange={onChange}
+        />
     );
 };
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
     const [email, setEmail] = useState("");
     const [checkedItems, setCheckedItems] = useState({});
 
@@ -18,21 +30,56 @@ const Form = () => {
         });
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const requestBody = {
+            email,
+            games: Object.keys(checkedItems).filter(
+                (item) => checkedItems[item] === true
+            ),
+        };
+
+        const url = "http://localhost:3000/api/subscribe";
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            const result = await response.json();
+
+            //reset
+            if (response.ok) {
+                setEmail("");
+                setCheckedItems({});
+            }
+
+            onSubmit(result.message);
+        } catch (err) {
+            onSubmit(err.message);
+        }
+    };
+
     const checkboxes = [
         {
-            name: "gta-checkbox",
+            name: "gta",
             id: "gta-checkbox",
             key: "gta",
             label: "GTA5: Online",
         },
         {
-            name: "valorant-checkbox",
+            name: "valorant",
             id: "valorant-checkbox",
             key: "valorant",
             label: "Valorant",
         },
         {
-            name: "lol-checkbox",
+            name: "lol",
             id: "lol-checkbox",
             key: "lol",
             label: "League of Legends",
@@ -40,8 +87,8 @@ const Form = () => {
     ];
 
     return (
-        <form id="sub-form">
-            <label htmlFor="email">Email</label>
+        <form id="sub-form" onSubmit={handleSubmit} method="POST">
+            <label htmlFor="email-input">Email</label>
             <input
                 type="email"
                 id="email-input"
@@ -50,28 +97,19 @@ const Form = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <label>Fav games:</label>
+            <label>Fav games</label>
             {checkboxes.map((item) => (
                 <label key={item.key}>
-                    {item.label}
                     <Checkbox
                         name={item.name}
+                        id={item.id}
                         checked={checkedItems[item.name]}
                         onChange={handleChange}
                     />
+                    {item.label}
                 </label>
             ))}
-            {/* <input type="checkbox" id="gta5" name="gta5" value="gta5" />
-            <label htmlFor="gta5">GTA5: Online</label>
-            <input
-                type="checkbox"
-                id="valorant"
-                name="valorant"
-                value="valorant"
-            />
-            <label htmlFor="valorant">Valorant</label>
-            <input type="checkbox" id="lol" name="lol" value="lol" />
-            <label htmlFor="lol">League of Legends </label> */}
+
             <input
                 type="submit"
                 className="primary-button"
@@ -83,10 +121,13 @@ const Form = () => {
 };
 
 const EmailSub = () => {
+    const [submitResult, setSubmitResult] = useState("");
+
     return (
         <section id="email-sub-container">
             <Header />
-            <Form />
+            <Form onSubmit={setSubmitResult} />
+            {submitResult !== "" && <p>{submitResult}</p>}
         </section>
     );
 };
