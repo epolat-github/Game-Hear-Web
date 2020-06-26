@@ -67,9 +67,9 @@ const Form = ({ onSubmit }) => {
 
     const checkboxes = [
         {
-            name: "gta",
-            id: "gta-checkbox",
-            key: "gta",
+            name: "gta5",
+            id: "gta5-checkbox",
+            key: "gta5",
             label: "GTA5: Online",
         },
         {
