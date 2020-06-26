@@ -40,7 +40,7 @@ const Form = ({ onSubmit }) => {
             ),
         };
 
-        const url = "http://localhost:3000/api/subscribe";
+        const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
 
         try {
             const response = await fetch(url, {
