@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 
 const Checkbox = ({
@@ -41,6 +41,7 @@ const Form = ({ onSubmit }) => {
         };
 
         const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
+        // const url = "http://localhost:3000/api/subscribe";
 
         try {
             const response = await fetch(url, {
@@ -123,11 +124,18 @@ const Form = ({ onSubmit }) => {
 const EmailSub = () => {
     const [submitResult, setSubmitResult] = useState("");
 
+    // show the result message for a time
+    useEffect(() => {
+        setTimeout(() => {
+            setSubmitResult("");
+        }, 1500);
+    }, [submitResult]);
+
     return (
         <section id="email-sub-container">
             <Header />
             <Form onSubmit={setSubmitResult} />
-            {submitResult !== "" && <p>{submitResult}</p>}
+            {submitResult !== "" && <p id="result-text">{submitResult}</p>}
         </section>
     );
 };
