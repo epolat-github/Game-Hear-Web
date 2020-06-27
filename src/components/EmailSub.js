@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import * as EmailValidator from "email-validator";
 
 const Checkbox = ({
     id,
@@ -22,6 +23,43 @@ const Checkbox = ({
 const Form = ({ onSubmit }) => {
     const [email, setEmail] = useState("");
     const [checkedItems, setCheckedItems] = useState({});
+    const [emailError, setEmailError] = useState("");
+    const [checkedItemsError, setCheckedItemsError] = useState("");
+
+    const validate = () => {
+        let validation = true;
+
+        // empty email input
+        if (email === "") {
+            setEmailError("Email can't be empty.");
+            validation = false;
+        }
+        // email validation
+        else if (!EmailValidator.validate(email)) {
+            setEmailError("Email is not valid.");
+            validation = false;
+        }
+        // if email is valid
+        else {
+            setEmailError("");
+        }
+
+        // if nothing checked
+        if (
+            Object.keys(checkedItems).filter(
+                (item) => checkedItems[item] === true
+            ).length == 0
+        ) {
+            setCheckedItemsError("Nothing is checked.");
+            validation = false;
+        }
+
+        // if checkboxes are valid
+        else {
+            setCheckedItemsError("");
+        }
+        return validation;
+    };
 
     const handleChange = (event) => {
         setCheckedItems({
@@ -32,6 +70,10 @@ const Form = ({ onSubmit }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (validate() === false) {
+            return false;
+        }
 
         const requestBody = {
             email,
@@ -91,13 +133,14 @@ const Form = ({ onSubmit }) => {
         <form id="sub-form" onSubmit={handleSubmit} method="POST">
             <label htmlFor="email-input">Email</label>
             <input
-                type="email"
+                // type="email"
                 id="email-input"
                 name="email"
                 placeholder="head@shot.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
+            <p className="error-message">{emailError}</p>
             <label>Fav games</label>
             {checkboxes.map((item) => (
                 <label key={item.key}>
@@ -110,6 +153,7 @@ const Form = ({ onSubmit }) => {
                     {item.label}
                 </label>
             ))}
+            <p className="error-message">{checkedItemsError}</p>
 
             <input
                 type="submit"
