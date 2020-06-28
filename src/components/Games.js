@@ -66,7 +66,7 @@ const Games = () => {
                 changeActiveIndex={setActiveGameIndex}
             />
             {!isLoaded && <div className="loading">Loading...</div>}
-            {(!error && isLoaded) ? (
+            {!error && (
                 <section className="cards-container">
                     {newsList.map((news) => (
                         <SingleNewsCard
@@ -84,7 +84,8 @@ const Games = () => {
                         />
                     ))}
                 </section>
-            ) : (
+            )}
+            {error && (
                 <div className="error-container">
                     <p>This game is not ready or there's an internal error.</p>
                 </div>

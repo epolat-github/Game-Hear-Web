@@ -20,11 +20,19 @@ const Checkbox = ({
     );
 };
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
     const [email, setEmail] = useState("");
     const [checkedItems, setCheckedItems] = useState({});
     const [emailError, setEmailError] = useState("");
     const [checkedItemsError, setCheckedItemsError] = useState("");
+    const [submitResult, setSubmitResult] = useState("");
+
+    // show the result message for a time
+    useEffect(() => {
+        setTimeout(() => {
+            setSubmitResult("");
+        }, 2000);
+    }, [submitResult]);
 
     const validate = () => {
         let validation = true;
@@ -102,9 +110,9 @@ const Form = ({ onSubmit }) => {
                 setCheckedItems({});
             }
 
-            onSubmit(result.message);
+            setSubmitResult(result.message);
         } catch (err) {
-            onSubmit(err.message);
+            setSubmitResult(err.message);
         }
     };
 
@@ -161,25 +169,19 @@ const Form = ({ onSubmit }) => {
                 id="submit-button"
                 value="Shoot!"
             />
+            {submitResult !== "" && <p id="result-text">{submitResult}</p>}
         </form>
     );
 };
 
 const EmailSub = () => {
-    const [submitResult, setSubmitResult] = useState("");
-
-    // show the result message for a time
-    useEffect(() => {
-        setTimeout(() => {
-            setSubmitResult("");
-        }, 1500);
-    }, [submitResult]);
+    
 
     return (
         <section id="email-sub-container">
             <Header />
-            <Form onSubmit={setSubmitResult} />
-            {submitResult !== "" && <p id="result-text">{submitResult}</p>}
+            <Form />
+            {/* {submitResult !== "" && <p id="result-text">{submitResult}</p>} */}
         </section>
     );
 };
