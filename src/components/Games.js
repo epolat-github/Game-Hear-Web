@@ -22,16 +22,16 @@ const Games = () => {
                 throw new Error("Network response is not OK.");
             }
             const data = await response.json();
-            setTimeout(() => {
+            // setTimeout(() => {
                 setIsLoaded(true);
                 setNewsList(data);
-            }, 300);
+            // }, 300);
         } catch (err) {
-            setTimeout(() => {
+            // setTimeout(() => {
                 console.log(err);
                 setIsLoaded(true);
                 setError(err);
-            }, 300);
+            // }, 300);
         }
     };
 
