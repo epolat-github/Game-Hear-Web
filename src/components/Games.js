@@ -23,14 +23,14 @@ const Games = () => {
             }
             const data = await response.json();
             // setTimeout(() => {
-                setIsLoaded(true);
-                setNewsList(data);
+            setIsLoaded(true);
+            setNewsList(data);
             // }, 300);
         } catch (err) {
             // setTimeout(() => {
-                console.log(err);
-                setIsLoaded(true);
-                setError(err);
+            console.log(err);
+            setIsLoaded(true);
+            setError(err);
             // }, 300);
         }
     };
@@ -68,9 +68,9 @@ const Games = () => {
             {!isLoaded && <div className="loading">Loading...</div>}
             {!error && (
                 <section className="cards-container">
-                    {newsList.map((news) => (
+                    {newsList.map((news, index) => (
                         <SingleNewsCard
-                            key={Math.random().toString()}
+                            key={`card${index}`}
                             date={new Date(news.newDate)}
                             header={news.newHeader}
                             image={{

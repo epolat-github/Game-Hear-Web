@@ -24,11 +24,11 @@ const SingleNewsCard = ({ date, header, image, news }) => {
                 {news.map((item, index) => (
                     <li
                         className="weekly-news-list-item"
-                        key={index.toString()}
+                        key={`newsListItem${index}`}
                     >
                         <h3>{item.topic}</h3>
                         {item.items.map((item, index) => (
-                            <p key={index.toString()}>{item}</p>
+                            <p key={`innerNewsList${index}`}>{item}</p>
                         ))}
                     </li>
                 ))}
