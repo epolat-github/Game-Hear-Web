@@ -12,6 +12,7 @@ const Games = () => {
     const [activeGameIndex, setActiveGameIndex] = useState(
         Math.floor(gamesList.length / 2)
     );
+    const [totalNewsCount, setTotalNewsCount] = useState(0);
 
     const fetchData = async (count) => {
         try {
@@ -35,6 +36,30 @@ const Games = () => {
         }
     };
 
+    const fetchCount = async () => {
+        try {
+            const response = await fetch(
+                `https://game-hear-backend.herokuapp.com/api/${gamesList[activeGameIndex]}/count`
+            );
+            if (!response.ok) {
+                throw new Error("Network response is not OK.");
+            }
+            const data = await response.json();
+            setTotalNewsCount(data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    // fetch total count
+    // useEffect(() => {
+    //     fetchCount();
+
+    //     return () => {
+    //         setTotalNewsCount(0);
+    //     };
+    // }, []);
+
     useEffect(() => {
         let count;
 
@@ -48,12 +73,14 @@ const Games = () => {
         }
 
         fetchData(count);
+        fetchCount();
 
         // cleanup
         return () => {
             setIsLoaded(false);
             setNewsList([]);
             setError(null);
+            setTotalNewsCount(0);
         };
     }, [activeGameIndex]);
 
@@ -90,7 +117,7 @@ const Games = () => {
                     <p>This game is not ready or there's an internal error.</p>
                 </div>
             )}
-            {isLoaded && !error && (
+            {isLoaded && !error && totalNewsCount !== newsList.length && (
                 <button
                     className="primary-button more-button"
                     onClick={() => fetchData(newsList.length + 3)}
