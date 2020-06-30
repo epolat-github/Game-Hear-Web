@@ -90,8 +90,8 @@ const Form = () => {
             ),
         };
 
-        const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
-        // const url = "http://localhost:3000/api/subscribe";
+        // const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
+        const url = "http://localhost:3000/api/subscribe";
 
         try {
             const response = await fetch(url, {
@@ -108,11 +108,34 @@ const Form = () => {
             if (response.ok) {
                 setEmail("");
                 setCheckedItems({});
-            }
+                setCheckedItemsError("");
+                setEmailError("");
+                setSubmitResult(result.message);
+            } else {
+                // games checkbox SERVER VALIDATION handler
+                if (result.message.includes("games")) {
+                    setCheckedItemsError("Nothing is checked.");
+                } else {
+                    setCheckedItemsError("");
+                }
 
-            setSubmitResult(result.message);
+                // Email input SERVER VALIDATION handler
+                if (result.message.includes("email")) {
+                    setEmailError("Email is not valid.");
+                } else {
+                    setEmailError("");
+                }
+
+                if (
+                    !result.message.includes("games") &&
+                    !result.message.includes("email")
+                ) {
+                    throw new Error("Something went wrong. Sorry.");
+                }
+            }
         } catch (err) {
-            setSubmitResult(err.message);
+            console.log("ERROR: ", err.message);
+            setSubmitResult("Something went wrong. Sorry.");
         }
     };
 
@@ -175,8 +198,6 @@ const Form = () => {
 };
 
 const EmailSub = () => {
-    
-
     return (
         <section id="email-sub-container">
             <Header />

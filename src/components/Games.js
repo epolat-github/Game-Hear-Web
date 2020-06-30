@@ -51,15 +51,6 @@ const Games = () => {
         }
     };
 
-    // fetch total count
-    // useEffect(() => {
-    //     fetchCount();
-
-    //     return () => {
-    //         setTotalNewsCount(0);
-    //     };
-    // }, []);
-
     useEffect(() => {
         let count;
 
