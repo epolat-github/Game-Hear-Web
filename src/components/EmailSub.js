@@ -90,8 +90,8 @@ const Form = () => {
             ),
         };
 
-        // const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
-        const url = "http://localhost:3000/api/subscribe";
+        const url = "https://game-hear-backend.herokuapp.com/api/subscribe";
+        // const url = "http://localhost:3000/api/subscribe";
 
         try {
             const response = await fetch(url, {
@@ -169,21 +169,23 @@ const Form = () => {
                 name="email"
                 placeholder="head@shot.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.trim())}
             />
             <p className="error-message">{emailError}</p>
             <label>Fav games</label>
-            {checkboxes.map((item) => (
-                <label key={item.key}>
-                    <Checkbox
-                        name={item.name}
-                        id={item.id}
-                        checked={checkedItems[item.name]}
-                        onChange={handleChange}
-                    />
-                    {item.label}
-                </label>
-            ))}
+            <section id="game-checkboxes">
+                {checkboxes.map((item) => (
+                    <label key={item.key}>
+                        <Checkbox
+                            name={item.name}
+                            id={item.id}
+                            checked={checkedItems[item.name]}
+                            onChange={handleChange}
+                        />
+                        {item.label}
+                    </label>
+                ))}
+            </section>
             <p className="error-message">{checkedItemsError}</p>
 
             <input

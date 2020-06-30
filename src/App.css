@@ -316,21 +316,32 @@ button {
     flex-direction: column;
     width: 30%;
 
-    /* background-color: #f0ebeb; */
-    border: 1px solid grey;
-    padding: 20px;
-    margin: 10%;
+    margin-top: 3%;
+
+    padding: 5% 5% 3% 5%;
+    /* margin: 10%; */
+    box-shadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00562291),
+        0px 6.6501px 5.32008px rgba(0, 0, 0, 0.00807786),
+        0px 12.5216px 10.0172px rgba(0, 0, 0, 0.01),
+        0px 22.3363px 17.869px rgba(0, 0, 0, 0.0119221),
+        0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0143771),
+        0px 100px 80px rgba(0, 0, 0, 0.02), 0px 4px 4px rgba(0, 0, 0, 0.25);
     /* font-size: 2rem; */
 }
 
-/* email input */
-label:first-child,
-label:nth-child(4) {
-    font-size: 1.3rem;
+/* labels */
+#sub-form label {
+    font-size: 2.2rem;
     font-weight: 600;
     color: rgb(77, 66, 66);
 }
 
+#sub-form > label:nth-child(4) {
+    /* color:red */
+    margin-top: 5%;
+}
+
+/* email input */
 #email-input {
     outline: none;
     border: none;
@@ -340,11 +351,41 @@ label:nth-child(4) {
     padding-bottom: 5px;
 
     margin-bottom: 1%;
-    margin-top: 0%;
+    margin-top: 1%;
 
     border-bottom: 2px solid #4d21ff;
 
-    font-size: 1.3rem;
+    font-size: 2rem;
+}
+
+/* games checkboxes */
+#game-checkboxes {
+    margin: 3% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#game-checkboxes label {
+    font-size: 1.9rem;
+    font-weight: normal;
+}
+
+/* submit button */
+#submit-button {
+    width: 30%;
+    /* height: 80px; */
+    align-self: center;
+
+    padding: 15px 15px;
+    margin-top: 5%;
+
+    font-weight: bold;
+    font-size: 2rem;
+
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 /* submit result text */
@@ -358,26 +399,10 @@ label:nth-child(4) {
     text-transform: uppercase;
 }
 
-/* submit button */
-#submit-button {
-    width: 30%;
-    align-self: center;
-
-    padding: 10px 15px;
-    margin-top: 5%;
-
-    font-weight: bold;
-    font-size: 1.2rem;
-
-    outline: none;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-}
-
 /* error messages */
 .error-message {
     margin-bottom: 5%;
-    font-size: 1.4rem;
-    color: rgb(207, 57, 57);
+    margin-top: 1%;
+    font-size: 1.5rem;
+    color: rgb(143, 50, 50);
 }
