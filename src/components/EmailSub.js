@@ -188,13 +188,16 @@ const Form = () => {
             </section>
             <p className="error-message">{checkedItemsError}</p>
 
-            <input
-                type="submit"
-                className="primary-button"
-                id="submit-button"
-                value="Shoot!"
-            />
-            {submitResult !== "" && <p id="result-text">{submitResult}</p>}
+            {submitResult !== "" ? (
+                <p id="result-text">{submitResult}</p>
+            ) : (
+                <input
+                    type="submit"
+                    className="primary-button"
+                    id="submit-button"
+                    value="Shoot!"
+                />
+            )}
         </form>
     );
 };
